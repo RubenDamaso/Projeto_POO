@@ -61,6 +61,10 @@ public class Empresa {
              System.out.println("!!-- O nome do funcionário só pode conter Letras --!!");
              checkNome = false;
          }
+         else if(nome.isBlank()){
+            System.out.println("!!-- O nome do funcionário não Pode estar vazio --!!");
+             checkNome = false;
+         }
          else{
               checkNome = true;
          }
@@ -382,9 +386,13 @@ public class Empresa {
        
        /*--- Recolha de dados ---*/
        do{    
-        nome = scanner.getText("Nome:");
+         nome = scanner.getText("Nome:");
          if (checkStringIsNumber(nome)){
              System.out.println("!!-- O nome do funcionário só pode conter Letras --!!");
+             checkNome = false;
+         }
+         else if(nome.isBlank()){
+            System.out.println("!!-- O nome do funcionário não Pode estar vazio --!!");
              checkNome = false;
          }
          else{
@@ -395,9 +403,9 @@ public class Empresa {
        int idEmpregado =  r.nextInt(100-1) + 1;
        
        do{    
-         diasDeTrabalho = scanner.getIntegerNumber("Dias de Trabalho:");
-         if (diasDeTrabalho < 0){
-             System.out.println("!!-- Os dias de Trabalho têm de ser superiores a 0--!!");
+         diasDeTrabalho = scanner.getIntegerNumber("Dias de Trabalho do mês atual:");
+         if (diasDeTrabalho < 0 || diasDeTrabalho > 23){
+             System.out.println("!!-- Os dias de Trabalho Mensais têm de ser superiores a 0 e inferiores a 23 dias uteis--!!");
              checkDiasDeTrabalho = false;
          }
          else{
@@ -543,15 +551,15 @@ public class Empresa {
         switch(opc){
             case 1->{
             
-                int firstMothWorkDays = 23;
+                int firstMothWorkDays = 23;//Dias uteis do Mês de Janeiro
                 int secondMothWorkDays=0;
                      if(anoAtual%100 == 0 && anoAtual%400 == 0){
-                        secondMothWorkDays = 21;
+                        secondMothWorkDays = 21;//Dias uteis do Mês de Fevereiro caso ano bissesto
                     }
                     else{
-                        secondMothWorkDays = 20;
+                        secondMothWorkDays = 20;//Dias uteis do Mês de Fevereiro caso não seja ano bissesto
                     }
-                int thirdMonthWorkDays=23;
+                int thirdMonthWorkDays=23;//Dias uteis do Mês de Março
                 
                 int totalDays = firstMothWorkDays + secondMothWorkDays + thirdMonthWorkDays;
                 paymentSimulated = Simulate(totalDays,totalWorkers);
@@ -559,9 +567,9 @@ public class Empresa {
             
             case 2, 4->{
             
-                int firstMothWorkDays = 22;
-                int secondMothWorkDays=23;
-                int thirdMonthWorkDays=22;
+                int firstMothWorkDays = 22;//Dias uteis do Mês de Abril    / Dias uteis do Mês de Outubro
+                int secondMothWorkDays=23;//Dias uteis do Mês de Maio     /  Dias uteis do Mês de Novembro
+                int thirdMonthWorkDays=22;//Dias uteis do Mês de Junho   /   Dias uteis do Mês de Dezembro
                 int totalDays = firstMothWorkDays + secondMothWorkDays + thirdMonthWorkDays;
                 paymentSimulated = Simulate(totalDays,totalWorkers);
              
@@ -569,9 +577,9 @@ public class Empresa {
             
             case 3->{
             
-                int firstMothWorkDays = 23;
-                int secondMothWorkDays=23;
-                int thirdMonthWorkDays=22;
+                int firstMothWorkDays = 23;//Dias uteis do Mês de Julho
+                int secondMothWorkDays=23;//Dias uteis do Mês de Agosto
+                int thirdMonthWorkDays=22;//Dias uteis do Mês de Setembro
                 
                 int totalDays = firstMothWorkDays + secondMothWorkDays + thirdMonthWorkDays;
                 paymentSimulated = Simulate(totalDays,totalWorkers);
@@ -598,26 +606,26 @@ public class Empresa {
         switch(opc){
             case 1->{
             
-                int firstMothWorkDays = 23;
+                int firstMothWorkDays = 23; //Dias uteis do Mês de Janeiro
                 int secondMothWorkDays=0;
                    if(anoAtual%100 == 0 && anoAtual%400 == 0){
-                        secondMothWorkDays = 21;
+                        secondMothWorkDays = 21;//Dias uteis do Mês de Fevereiro caso ano bissesto
                     }
                     else{
-                        secondMothWorkDays = 20;
+                        secondMothWorkDays = 20;//Dias uteis do Mês de Fevereiro caso não seja ano bissesto
                     }
-                int thirdMonthWorkDays=23; 
-                int forthMonth = 22;
-                int fifthMonth=23;
-                int SixthMonth=22;
+                int thirdMonthWorkDays=23;//Dias uteis do mês de Março
+                int forthMonth = 22;//Dias uteis do mês de Abril
+                int fifthMonth=23;//Dias uteis do mês de Maio
+                int SixthMonth=22;//Dias uteis do mês de Junho
                 
-                int totalDays = firstMothWorkDays + secondMothWorkDays + thirdMonthWorkDays + forthMonth + fifthMonth + SixthMonth;
+                int totalDays = firstMothWorkDays + secondMothWorkDays + thirdMonthWorkDays + forthMonth + fifthMonth + SixthMonth;//Totalidade de dias uteis no 1º Semestre
                 paymentSimulated = Simulate(totalDays,totalWorkers);
             }
             
             case 2->{
-            
-                int firstMothWorkDays = 23;
+                //Dias uteis Começando no Mês de Julho -> Dezembro (2ºSemestre)
+                int firstMothWorkDays = 23; 
                 int secondMothWorkDays=23;
                 int thirdMonthWorkDays=22; 
                 int forthMonth = 23;
@@ -644,8 +652,6 @@ public class Empresa {
         double paymentSimulated = 0;
         int totalWorkers=this.empregadoList.size();
         int totalDays =0;
-       
-          
                     if(anoAtual%100 == 0 && anoAtual%400 == 0){
                        totalDays = 252;
                     }
@@ -665,11 +671,11 @@ public class Empresa {
     * @return {double} Valor da Simulação
     */
     public double Simulate( int totalDeDias , int totalWorkers){
-        
+       //Valor na Totalidade caso todos os trabalhadores atuais trabalhem num periodo "totalDeDias"
        double paymentSimulated = (totalDeDias*totalWorkers) *this.salarioBase;
-       
+       //Formula para calcular o subsidio de natal 
        double subsidioNatal = (((this.salarioBase * 23)  / 365) * totalDeDias) * totalWorkers;
-       
+        //Formula para calcular o subsidio de Férias 
        double subsidioFerias = (this.salarioBase * 22) * totalWorkers;
        
        return paymentSimulated + subsidioNatal + subsidioFerias;

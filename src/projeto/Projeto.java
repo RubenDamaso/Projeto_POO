@@ -110,7 +110,7 @@ public class Projeto {
                     OpcEscolhaTipoDeCalculo = OpcEscolhaTipoDeCalculo.trim();
                     
                     if(OpcEscolhaTipoDeCalculo.equalsIgnoreCase("Mensal")){
-                      System.out.println("| VALOR TOTAL DE SALARIOS A PAGAR ESTE MES " + empresa.CalculateSalarios() + "€ |");
+                      System.out.println("| VALOR TOTAL DE SALARIOS A PAGAR ESTE MES " +  String.format("%,.2f", empresa.CalculateSalarios())+ "€ |");
                     }
                     if(OpcEscolhaTipoDeCalculo.equalsIgnoreCase("trimestral")){
                     System.out.println("| VALOR TOTAL DE SALARIOS A PAGAR NO PROXIMO TRIMESTRE : " + String.format("%,.2f", empresa.CalculateSalariosTrimestre(2022)) + "€ |");

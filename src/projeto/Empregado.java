@@ -110,7 +110,9 @@ public abstract class Empregado {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter FormatMes = DateTimeFormatter.ofPattern("MM");  
         String MesFormatado = now.format(FormatMes);
+        
         int mesAtual = Integer.parseInt(MesFormatado);
+        
         int totaldeDiasMes=0;
         for(int i=0; i<12; i++){
               if(i == mesAtual-1){
@@ -152,9 +154,12 @@ public abstract class Empregado {
     */
    @Override
     public abstract String toString();
-   
+   /**
+    * Metodo que Calcula o valor a ser acrescentado ao empregado , ou seja 0,5% do seu salario.
+    *@return award{double} valor a acrescentar
+    */
     public double seniorityAward(){
-
+        /*Vamos recolher o ano atual*/
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter FormatAno = DateTimeFormatter.ofPattern("yyyy");  
         String anoAtualFormatado = now.format(FormatAno);
@@ -162,9 +167,11 @@ public abstract class Empregado {
         int anoAtual =  Integer.parseInt(anoAtualFormatado);
         int anoDeEntrada = getAnoEntradaEmpresa();
         int NumeroAnos = 0;
-   
+        
+        /*O ano atual - o ano de entrada da empresa irá originar a totalidade de anos que o empregado está na Empresa*/
         NumeroAnos = anoAtual - anoDeEntrada;
         
+        /*Formula a aplicar para receber 0.5% do salário atual*/
         double award = (this.getSalario() * 0.05) * NumeroAnos;
         
         return award;
