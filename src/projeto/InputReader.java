@@ -6,13 +6,6 @@
 package projeto;
 import java.util.Scanner;
 
-/* InputReader reads typed number or text input from the standard text terminal. 
- * The text or number typed by a user is returned.
- * 
- * @author    IPOO
- * @version    06/11/2016
- */
-
 
 public class InputReader {
 
@@ -56,7 +49,6 @@ public class InputReader {
 
     public String getText(String  question) {
         showFormattedQuestion(question);
-
         return reader.nextLine();
     }
 }

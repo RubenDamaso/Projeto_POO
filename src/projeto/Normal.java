@@ -25,7 +25,8 @@ public class Normal extends Empregado {
     
     @Override
     public String toString(){
-        String info = "\n ID :"+this.getId_Empregado()+"|Nome: " + this.getNome() +"|Categoria : Normal" + "| Data de entrada na Empresa : " + this.getDataEntradaEmpresa() + " | TOTAL DE DIAS CONCLUIDO : " + this.getTotalDiasTrabalhados() + ".";
+        String info = "\n ID :"+this.getId_Empregado()+"|Nome: " + this.getNome() +"|Categoria : Normal" + "| Data de entrada na Empresa : " 
+        + this.getDataEntradaEmpresa() + " | TOTAL DE DIAS CONCLUIDO : " + this.getTotalDiasTrabalhados() + ".";
         return info;
     }
     

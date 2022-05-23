@@ -62,7 +62,8 @@ public class Motorista extends Empregado {
     */
     @Override
     public String toString(){
-     String info = "\n ID :"+this.getId_Empregado()+"|Nome: " + this.getNome() +"|Categoria : Motorista " + "| Data de entrada na Empresa : " + this.getDataEntradaEmpresa() + " | TOTAL DE DIAS CONCLUIDO : " + this.getTotalDiasTrabalhados()+"|Km : "+this.getQuilometros() +" |Bonus a Pagar : "+this.getBonus();
+     String info = "\n ID :"+this.getId_Empregado()+"|Nome: " + this.getNome() +"|Categoria : Motorista " + "| Data de entrada na Empresa : " 
+     +this.getDataEntradaEmpresa() + " | TOTAL DE DIAS CONCLUIDO : " + this.getTotalDiasTrabalhados()+"|Km : "+this.getQuilometros() +" |Bonus a Pagar : "+this.getBonus();
      return info;
     }
     
