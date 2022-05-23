@@ -157,6 +157,7 @@ public class Empresa {
            break;    
        
        }
+        System.out.println("--!Empregado adicionado com sucesso!--");
             
     }
     
@@ -248,8 +249,8 @@ public class Empresa {
     */
     public int countType(String categoria){
        int contador=0;
-        categoria = categoria.trim();
-        
+       categoria = categoria.trim();
+     
         switch(categoria){
         
             case "Comerciais", "comerciais" -> {
@@ -284,7 +285,7 @@ public class Empresa {
                  }
              }
         }
-    
+      
 
        return contador;
     }
@@ -297,7 +298,11 @@ public class Empresa {
     public void showAllEmpregadosCategoria(String categoria){
         categoria = categoria.trim();
         categoria= categoria.toLowerCase();
+        if(this.isEmpty()){
+            System.out.println("!!---Não Existem Empregados---!!");
         
+        }
+        else{
         switch(categoria){
         
             case "Comerciais", "comerciais" -> {
@@ -340,6 +345,7 @@ public class Empresa {
                  System.out.println( "!---Não Existem Empregados Desta Categoria No Momento ---!");      
                }
            }
+        }
         }
     
     }

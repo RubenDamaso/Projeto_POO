@@ -90,8 +90,12 @@ public class Projeto {
                     System.out.println("Comercial");
                     System.out.println("Normal ");
                     OpcEscolhaCategoria = scanner.getText("Opção:");
-        
+                    if(empresa.countType(OpcEscolhaCategoria) != 0){
                     System.out.println("Existe " + empresa.countType(OpcEscolhaCategoria) + " Empregados/as da Categoria " + OpcEscolhaCategoria);
+                    }
+                    else{
+                        System.out.println("!!---Não Existem Empregados---!!");
+                    }
                 break;
                 case 7:
                     System.out.println("------------------Simulação de Pagamentos------------------");
@@ -120,7 +124,7 @@ public class Projeto {
                   
                 break;
                     case 0:
-                        System.out.println("----ADEUS----");
+                        System.out.println("----OBRIGADO----");
                     break;
                 default: System.out.println("!!!---ERRO - OPÇÃO INVÁLIDA---!!!");break;
             }
