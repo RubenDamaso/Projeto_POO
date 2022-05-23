@@ -6,7 +6,8 @@ package projeto;
 
 /**
  *
- * @author ruben
+ * @author Rúben Dâmaso
+ * @author David Neto
  */
 public class Normal extends Empregado {
 
