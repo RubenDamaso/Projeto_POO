@@ -51,7 +51,7 @@ public class Gestor extends Empregado {
     */
     @Override
     public String toString(){
-     String info = "\n ID :"+this.getId_Empregado()+"|Nome: " + this.getNome() +"|Categoria : Gestor " + "| Data de entrada na Empresa : " + this.getDataEntradaEmpresa() + " | TOTAL DE DIAS CONCLUIDO : " + this.getTotalDiasTrabalhados() +"|Premio a Pagar : "+this.getPremio();
+     String info = "\nID :"+this.getId_Empregado()+"|Nome:" + this.getNome() +"|Categoria :Gestor " + "| Data de entrada na Empresa:" + this.getDataEntradaEmpresa() + " | TOTAL DE DIAS CONCLUIDO:" + this.getTotalDiasTrabalhados() +"|Premio a Pagar:"+this.getPremio();
      return info;
     }
     /**

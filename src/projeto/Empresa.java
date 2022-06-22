@@ -3,8 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package projeto;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList; 
 import java.util.Random;
+import java.util.Scanner;
+
 /**
  *
  * @author Rúben Dâmaso
@@ -17,12 +23,14 @@ public class Empresa {
      private final ArrayList<Empregado> empregadoList;
      private final double salarioBase;
      private final InputReader scanner;
+
      
      /*---Metodo Construtor---*/
        public Empresa(){
         this.empregadoList = new ArrayList<>();
         this.scanner = new InputReader();
         this.salarioBase = 4.79;
+    
       }
        public Empresa(int salarioBase){
         this.empregadoList = new ArrayList<>();
@@ -30,6 +38,7 @@ public class Empresa {
         if(salarioBase>0){
          this.salarioBase = salarioBase;
         }else this.salarioBase = 4.79;
+      
       }
       
     /**
@@ -161,6 +170,7 @@ public class Empresa {
            break;    
        
        }
+        this.Write(this.empregadoList);
         System.out.println("--!Empregado adicionado com sucesso!--");
             
     }
@@ -353,8 +363,7 @@ public class Empresa {
         }
     
     }
-    
-      
+     
     /**
     * Função que devolve um array de empregados
     *@return {Empregado[]} -> Array com empregados
@@ -506,7 +515,9 @@ public class Empresa {
               /*Percorre o array de Empregados*/
               for (int i = 0; i < arrEmpregados.length; i++){
                 this.empregadoList.add(arrEmpregados[i]); 
+                
           }
+            this.Write(this.empregadoList);
        }
     }  
     
@@ -679,9 +690,140 @@ public class Empresa {
        double subsidioFerias = (this.salarioBase * 22) * totalWorkers;
        
        return paymentSimulated + subsidioNatal + subsidioFerias;
+    }
     
+   
     
+    /*------ Ficheiros ------*/
+    public static void CheckFile(){
+        try {
+          File file = new File("Empregados.txt");
+          Scanner reader = new Scanner(file);  
+          reader.close();
+        } catch (FileNotFoundException e) {
+          CreateFile();
+        } 
+    }
+    
+    public static void CreateFile(){
+    try {
+      File file = new File("Empregados.txt");
+      file.createNewFile();
+    } catch (IOException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+   }
+    
+    public static void Write(ArrayList<Empregado> Empregados){
+     try {
+      FileWriter filewriter = new FileWriter("Empregados.txt");
+      for(Empregado i : Empregados){
+        filewriter.write(i.toString());
+      } 
+      filewriter.close();
+    } catch (IOException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+    }
+    
+    public  void GetFromFile(){
+        /*--Variaveis*/
+        int i;
+        int id=0;
+        String nome="";
+        String categoria="";
+        int numeroCategoria=0;
+        String DataDeEntrada="";
+        int totalDiasTrabalhados=0;
+        int vendasRealizadas=0;
+        double taxaPorVendas=0;
+        int KmPercorridos=0;
+        double PremioAPagar=0.0;
+        double TaxaPorKilometro=0.0;   
+    try {
+      File ficheiro = new File("Empregados.txt");
+      Scanner reader = new Scanner(ficheiro);
+       reader.hasNextLine(); // this will read the first line
+       
+
+      while (reader.hasNextLine()) {
+        String dados = reader.nextLine();
+        if(!dados.isBlank()){
+              dados.trim();
+        String[] dadosSeparados = dados.split("\\|"); 
+        for(i =0 ;i< dadosSeparados.length;i++){
+           dadosSeparados[i] = dadosSeparados[i].replaceAll(".+:", "");
+           switch(i){
+               case 0:
+                   id = Integer.parseInt(dadosSeparados[i]); 
+                break;
+               case 1:
+                   nome=dadosSeparados[i]; 
+                break;
+               case 2:
+                   categoria=dadosSeparados[i];
+                   switch(categoria){
+                    case "Comerciais", "comerciais" ->  numeroCategoria = 3;
+                    case "Gestor", "gestor" -> numeroCategoria = 1;
+                    case "Motorista", "motorista" -> numeroCategoria = 2;
+                    case "Normal", "normal" -> numeroCategoria = 4;  
+                    }
+                break;
+               
+               case 3:
+                   DataDeEntrada=dadosSeparados[i];
+                break;
+               case 4:
+                   dadosSeparados[i].trim();
+                   totalDiasTrabalhados=Integer.parseInt(dadosSeparados[i]); 
+               break;
+               case 5:
+                   if(categoria.trim().equals("Comerciais")){
+                     vendasRealizadas=Integer.parseInt(dadosSeparados[i]); 
+                   }
+                   if(categoria.trim().equals("Motorista")){
+                     KmPercorridos=Integer.parseInt(dadosSeparados[i]); 
+                   }
+              break;
+              case 6:
+                  if(categoria.trim().equals("Comerciais")){
+                     taxaPorVendas=Double.parseDouble(dadosSeparados[i]);
+                   }
+                   if(categoria.trim().equals("Motorista")){
+                     TaxaPorKilometro=Double.parseDouble(dadosSeparados[i]);
+                   }
+              break;
+               
+           }
+           
+        }
+        if(categoria.trim().equals("Normal")){
+         Empregado novoEmpregado = new Normal(nome,id,totalDiasTrabalhados,this.salarioBase);
+         this.empregadoList.add(novoEmpregado); 
+        }
+         if(categoria.trim().equals("Gestor") ){
+           Empregado novoEmpregadoGestor = new Gestor(nome,id,totalDiasTrabalhados,this.salarioBase);
+           this.empregadoList.add(novoEmpregadoGestor);
+        }
+           if(categoria.trim().equals("Motorista")){
+           Empregado novoEmpregadoMotorista = new Motorista(nome,id,totalDiasTrabalhados,KmPercorridos,TaxaPorKilometro,this.salarioBase);
+               this.empregadoList.add(novoEmpregadoMotorista);
+        }
+          if(categoria.trim().equals("Comerciais")){
+          Empregado novoEmpregadoComercial = new Comerciais(nome,id,totalDiasTrabalhados,vendasRealizadas,taxaPorVendas,this.salarioBase);
+          this.empregadoList.add(novoEmpregadoComercial);  
+        }
+        
+        }
+
+      }
+      reader.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
     
     }
-
 }

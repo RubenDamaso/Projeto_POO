@@ -4,6 +4,10 @@
  */
 package projeto;
 
+import java.io.File;  // Import the File class
+import java.io.FileNotFoundException;  // Import this class to handle errors
+import java.util.Scanner; // Import the Scanner class to read text files
+
 /**
  *
  * @author Rúben Dâmaso
@@ -26,8 +30,9 @@ public class Projeto {
         System.out.println("-------------------------------------------------------------------------------------");
         System.out.println("|                                      0 - Sair                                     |");
         System.out.println("-------------------------------------------------------------------------------------");
-        
     }
+    
+    
      
     public static void main(String[] args) {
        
@@ -37,9 +42,9 @@ public class Projeto {
         
         Empresa empresa = new Empresa();
         InputReader scanner = new InputReader();
-        
- 
-        
+      
+         empresa.CheckFile();
+         empresa.GetFromFile();
         do{
          showMenu();
          opcMenu = scanner.getIntegerNumber("Opção? : ");
@@ -130,11 +135,6 @@ public class Projeto {
             }
         
         }while(opcMenu != 0);
-       
-        
-        
-        
-     
     }
     
 }
