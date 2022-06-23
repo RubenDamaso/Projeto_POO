@@ -15,7 +15,15 @@ public class Comerciais extends Empregado {
    private int vendas;
    private double taxaPorVendas;
   
-    /*--Metodo Construtor--*/
+    /**
+     * Metodo Construtor do Empregado tipo 'Comercial'
+     * @param nome {String} -  Nome 
+     * @param id_Empregado{int}
+     * @param totalDiasTrabalhados{int}
+     * @param vendas{int}
+     * @param taxaPorVendas{double}
+     * @param salarioBase{double}
+    */
     public Comerciais(String nome,int id_Empregado,int totalDiasTrabalhados , int vendas , double taxaPorVendas , double salarioBase){
         super(nome,id_Empregado,totalDiasTrabalhados,salarioBase);
         

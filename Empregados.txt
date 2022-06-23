@@ -1,0 +1,4 @@
+
+ID:1|Nome:Ola|Categoria: Motorista | Data de entrada na Empresa:2022/06/23 | TOTAL DE DIAS CONCLUIDO:1|Km:2|Taxa por Km:3.0 |Bonus a Pagar:6.0
+ID :2|Nome:rUBEN|Categoria :Normal| Data de entrada na Empresa: 2022/06/23 | TOTAL DE DIAS CONCLUIDO: 1
+ID :3|Nome:pEDRO|Categoria :Normal| Data de entrada na Empresa: 2022/06/23 | TOTAL DE DIAS CONCLUIDO: 1

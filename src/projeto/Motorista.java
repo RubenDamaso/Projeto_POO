@@ -15,6 +15,15 @@ public class Motorista extends Empregado {
    private int quilometros;
    private double taxaPorQuilometro;
    /*--Metodo Construtor--*/
+   /**
+    * Metodo que define um Empregado "Normal" por defeito
+    *@param nome {String} Nome do Empregado
+    *@param id_Empregado {Int} Numero interno do Empregado 
+    *@param totalDiasTrabalhados {Int} Total de dias Trabalhados
+    * @param quilometros{int} - Numero de Quilometros Efetuados
+    * @param taxaPorQuilometro{double} - Taxa paga pela empreasa por Kilometro efetuado
+    * @param salarioBase {Double} Salario Base Por dia
+    */
     public Motorista(String nome,int id_Empregado,int totalDiasTrabalhados , int quilometros , double taxaPorQuilometro , double salarioBase){
         super(nome,id_Empregado,totalDiasTrabalhados,salarioBase);
         

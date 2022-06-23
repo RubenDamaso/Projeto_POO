@@ -23,15 +23,51 @@ public class Empresa {
      private final ArrayList<Empregado> empregadoList;
      private final double salarioBase;
      private final InputReader scanner;
-
+     
+     private enum meses{
+         JANEIRO(23),
+         MARCO(23),
+         ABRIL(22),
+         MAIO(23),
+         JUNHO(22),
+         JULHO(23),
+         AGOSTO(23),
+         SETEMBRO(22),
+         OUTUBRO (23),
+         NOVEMBRO(22),
+         DEZEMBRO(23);   
+         
+         
+         
+         
+         private int dias;
+         meses(int dias){
+            this.dias=dias;
+         }
+         
+         public int getDias(){
+            return this.dias;
+         }
+         
+     }
+  
      
      /*---Metodo Construtor---*/
+        /**
+        * Metodo Construtor para a Empresa sem qualquer valor passado por parametro
+        * 
+        */
        public Empresa(){
         this.empregadoList = new ArrayList<>();
         this.scanner = new InputReader();
         this.salarioBase = 4.79;
     
       }
+        /**
+        * Metodo Construtor para a Empresa com o valor do salario base passado por parametro
+        *
+        * @param salarioBase {Double} - Valor do Salario Base da Empresa
+        */
        public Empresa(int salarioBase){
         this.empregadoList = new ArrayList<>();
         this.scanner = new InputReader();
@@ -43,9 +79,9 @@ public class Empresa {
       
     /**
     * Função que adiciona um empregado à empresa
-    *@param
     */
     public void addEmpregado(){
+     
        //Variaveis
        int opc;
        boolean checkNome;
@@ -170,6 +206,7 @@ public class Empresa {
            break;    
        
        }
+       /*Escrever no Ficheiro o novo Empregado*/
         this.Write(this.empregadoList);
         System.out.println("--!Empregado adicionado com sucesso!--");
             
@@ -182,12 +219,16 @@ public class Empresa {
     * 
     */
     public boolean checkStringIsNumber(String string){
-        try {
-            int intValue = Integer.parseInt(string);
-            return true;
-        } catch (NumberFormatException e) {
-             return false;  
-        } 
+      boolean check=false;
+      for(int i=0; i<string.length();i++){
+                try {
+                    int intValue = Integer.parseInt(string.charAt(i)+"");
+                    check = true;
+                } catch (NumberFormatException e) {
+                    check = false;  
+                }
+            }
+     return check;
     }
     
     /**
@@ -549,6 +590,7 @@ public class Empresa {
     * @return {double} Simulação do valor a Pagar Trimestralmente
     */
     public double CalculateSalariosTrimestre(int anoAtual){
+       
         System.out.println("---Escolha um Trimestre Para Simular---");
         System.out.println("1- 1º Trimestre");      
         System.out.println("2- 2º Trimestre");      
@@ -561,39 +603,33 @@ public class Empresa {
         
         switch(opc){
             case 1->{
-            
-                int firstMothWorkDays = 23;//Dias uteis do Mês de Janeiro
-                int secondMothWorkDays=0;
+                int FEVEREIRO=0;
                      if(anoAtual%100 == 0 && anoAtual%400 == 0){
-                        secondMothWorkDays = 21;//Dias uteis do Mês de Fevereiro caso ano bissesto
+                        FEVEREIRO = 21;//Dias uteis do Mês de Fevereiro caso ano bissesto
                     }
                     else{
-                        secondMothWorkDays = 20;//Dias uteis do Mês de Fevereiro caso não seja ano bissesto
+                        FEVEREIRO = 20;//Dias uteis do Mês de Fevereiro caso não seja ano bissesto
                     }
-                int thirdMonthWorkDays=23;//Dias uteis do Mês de Março
                 
-                int totalDays = firstMothWorkDays + secondMothWorkDays + thirdMonthWorkDays;
+                int totalDays = meses.JANEIRO.getDias() + FEVEREIRO + meses.MARCO.getDias();
                 paymentSimulated = Simulate(totalDays,totalWorkers);
             }
             
-            case 2, 4->{
-            
-                int firstMothWorkDays = 22;//Dias uteis do Mês de Abril    / Dias uteis do Mês de Outubro
-                int secondMothWorkDays=23;//Dias uteis do Mês de Maio     /  Dias uteis do Mês de Novembro
-                int thirdMonthWorkDays=22;//Dias uteis do Mês de Junho   /   Dias uteis do Mês de Dezembro
-                int totalDays = firstMothWorkDays + secondMothWorkDays + thirdMonthWorkDays;
+            case 2->{
+                int totalDays = meses.ABRIL.getDias() + meses.MAIO.getDias() + meses.JUNHO.getDias();
                 paymentSimulated = Simulate(totalDays,totalWorkers);
              
             }
             
             case 3->{
-            
-                int firstMothWorkDays = 23;//Dias uteis do Mês de Julho
-                int secondMothWorkDays=23;//Dias uteis do Mês de Agosto
-                int thirdMonthWorkDays=22;//Dias uteis do Mês de Setembro
-                
-                int totalDays = firstMothWorkDays + secondMothWorkDays + thirdMonthWorkDays;
+                int totalDays = meses.JULHO.getDias() + meses.AGOSTO.getDias() + meses.SETEMBRO.getDias();
                 paymentSimulated = Simulate(totalDays,totalWorkers);
+            }
+            
+            case 4->{
+                int totalDays = meses.OUTUBRO.getDias() + meses.NOVEMBRO.getDias() + meses.DEZEMBRO.getDias();
+                paymentSimulated = Simulate(totalDays,totalWorkers);
+             
             }
             
         }
@@ -616,34 +652,18 @@ public class Empresa {
         
         switch(opc){
             case 1->{
-            
-                int firstMothWorkDays = 23; //Dias uteis do Mês de Janeiro
-                int secondMothWorkDays=0;
+                int FEVEREIRO=0;
                    if(anoAtual%100 == 0 && anoAtual%400 == 0){
-                        secondMothWorkDays = 21;//Dias uteis do Mês de Fevereiro caso ano bissesto
+                        FEVEREIRO = 21;//Dias uteis do Mês de Fevereiro caso ano bissesto
                     }
                     else{
-                        secondMothWorkDays = 20;//Dias uteis do Mês de Fevereiro caso não seja ano bissesto
+                        FEVEREIRO = 20;//Dias uteis do Mês de Fevereiro caso não seja ano bissesto
                     }
-                int thirdMonthWorkDays=23;//Dias uteis do mês de Março
-                int forthMonth = 22;//Dias uteis do mês de Abril
-                int fifthMonth=23;//Dias uteis do mês de Maio
-                int SixthMonth=22;//Dias uteis do mês de Junho
-                
-                int totalDays = firstMothWorkDays + secondMothWorkDays + thirdMonthWorkDays + forthMonth + fifthMonth + SixthMonth;//Totalidade de dias uteis no 1º Semestre
+                int totalDays = meses.JANEIRO.getDias() + FEVEREIRO + meses.MARCO.getDias() + meses.ABRIL.getDias() + meses.MAIO.getDias() + meses.JUNHO.getDias();//Totalidade de dias uteis no 1º Semestre
                 paymentSimulated = Simulate(totalDays,totalWorkers);
             }
-            
             case 2->{
-                //Dias uteis Começando no Mês de Julho -> Dezembro (2ºSemestre)
-                int firstMothWorkDays = 23; 
-                int secondMothWorkDays=23;
-                int thirdMonthWorkDays=22; 
-                int forthMonth = 23;
-                int fifthMonth=22;
-                int SixthMonth=23;
-                
-                int totalDays = firstMothWorkDays + secondMothWorkDays + thirdMonthWorkDays + forthMonth + fifthMonth + SixthMonth;
+                int totalDays = meses.JULHO.getDias() + meses.AGOSTO.getDias() + meses.SETEMBRO.getDias() + meses.OUTUBRO.getDias() + meses.NOVEMBRO.getDias() + meses.DEZEMBRO.getDias();
                 paymentSimulated = Simulate(totalDays,totalWorkers);
              
             }
@@ -660,6 +680,8 @@ public class Empresa {
     * @return {double} Simulação do valor a Pagar Anaul
     */
     public double CalculateSalariosAnual(int anoAtual){
+       
+        
         double paymentSimulated = 0;
         int totalWorkers=this.empregadoList.size();
         int totalDays =0;
@@ -695,6 +717,10 @@ public class Empresa {
    
     
     /*------ Ficheiros ------*/
+    
+    /**
+     * Função que Verifica se o ficheiro existe e se não existir cria um novo
+     */
     public static void CheckFile(){
         try {
           File file = new File("Empregados.txt");
@@ -705,6 +731,9 @@ public class Empresa {
         } 
     }
     
+    /**
+     * Função que cria  o ficheiro 
+     */
     public static void CreateFile(){
     try {
       File file = new File("Empregados.txt");
@@ -715,6 +744,10 @@ public class Empresa {
     }
    }
     
+    /**
+     * Função que escreve no ficheiro todos os Empregados
+     * @param Empregados {ArrayList<Empregado>} - ArrayList de Empregados
+     */
     public static void Write(ArrayList<Empregado> Empregados){
      try {
       FileWriter filewriter = new FileWriter("Empregados.txt");
@@ -728,6 +761,9 @@ public class Empresa {
     }
     }
     
+    /**
+     * Função que obtem do Ficheiro os Empregados e Insere na ArrayList , semelhante a uma Base de Dados
+     */
     public  void GetFromFile(){
         /*--Variaveis*/
         int i;

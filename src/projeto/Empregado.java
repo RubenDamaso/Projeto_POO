@@ -77,8 +77,6 @@ public abstract class Empregado {
         
     }
 
-    
-    
    
     /*--- Get & Set Nome---*/
     public String getNome() {
