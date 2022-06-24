@@ -12,7 +12,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- *
+ *Classe Empresa
  * @author Rúben Dâmaso
  * @author David Neto
  */
@@ -737,13 +737,12 @@ public class Empresa {
       file.createNewFile();
     } catch (IOException e) {
       System.out.println("An error occurred.");
-      e.printStackTrace();
     }
    }
     
     /**
     * Função que escreve no ficheiro todos os Empregados
-    * @param Empregados {ArrayList<Empregado>} - ArrayList de Empregados
+    * @param Empregados {ArrayList} - ArrayList de Empregados
     */
     public static void Write(ArrayList<Empregado> Empregados){
      try {
@@ -754,7 +753,6 @@ public class Empresa {
       filewriter.close();
     } catch (IOException e) {
       System.out.println("An error occurred.");
-      e.printStackTrace();
     }
     }
     

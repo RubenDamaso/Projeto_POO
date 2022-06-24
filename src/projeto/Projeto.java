@@ -9,7 +9,7 @@ import java.io.FileNotFoundException;  // Import this class to handle errors
 import java.util.Scanner; // Import the Scanner class to read text files
 
 /**
- *
+ * Main do Projeto
  * @author Rúben Dâmaso
  * @author David Neto
  */
@@ -42,8 +42,9 @@ public class Projeto {
         
         Empresa empresa = new Empresa();
         InputReader scanner = new InputReader();
-      
+         /*Verificação do ficheiro que guarda os Empregados*/
          empresa.CheckFile();
+         /*População Dinamica do Array Através do Ficheiro que contêm os Empregados */
          empresa.GetFromFile();
         do{
          showMenu();

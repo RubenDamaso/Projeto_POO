@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
  */
 
 /**
- *
+ * Classe abstrata Empregado
  * @author Rúben Dâmaso
  * @author David Neto
  */

@@ -5,7 +5,7 @@
 package projeto;
 
 /**
- *
+ *Classe Motorista
  * @author Rúben Dâmaso
  * @author David Neto
  */

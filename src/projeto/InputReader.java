@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package projeto;
+/**
+ *Classe InputReader
+ * @author Rúben Dâmaso
+ * @author David Neto
+ */
 import java.util.Scanner;
 
 public class InputReader {

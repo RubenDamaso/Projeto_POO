@@ -5,6 +5,7 @@
 package projeto;
 
 /**
+ * Classe Comerciais
  * @author Rúben Dâmaso
  * @author David Neto
  */
@@ -94,7 +95,7 @@ public class Comerciais extends Empregado {
     */
     @Override
     public String toString(){
-     String info = "\nID :"+this.getId_Empregado()+"|Nome:" + this.getNome() +"|Categoria: Comerciais" + "| Data de entrada na Empresa:" + this.getDataEntradaEmpresa() + " | TOTAL DE DIAS CONCLUIDO:" + this.getTotalDiasTrabalhados()+"|Vendas Realizadas:"+this.getVendas()+"|Taxa por vendas:"+this.getTaxaPorVendas()+"|Bonus a Pagar:"+this.getBonus();
+     String info = "\nID:"+this.getId_Empregado()+"|Nome:" + this.getNome() +"|Categoria: Comerciais" + "|Data de entrada na Empresa:" + this.getDataEntradaEmpresa() + " | TOTAL DE DIAS CONCLUIDO:" + this.getTotalDiasTrabalhados()+"|Vendas Realizadas:"+this.getVendas()+"|Taxa por vendas:"+this.getTaxaPorVendas()+"|Bonus a Pagar:"+this.getBonus();
      return info;
     }
     
