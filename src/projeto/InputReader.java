@@ -5,7 +5,7 @@
  */
 package projeto;
 /**
- *Classe InputReader
+ * Classe InputReader
  * @author Rúben Dâmaso
  * @author David Neto
  */
