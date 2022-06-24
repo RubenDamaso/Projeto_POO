@@ -36,6 +36,7 @@ public class Motorista extends Empregado {
         }else this.taxaPorQuilometro = taxaPorQuilometro;
         
     }
+    
     /**
     * Metodo que adiciona o Bonus ao Empregado Motorista Consoante os Quilometros Efetuados e taxa por Quilometro
     * @return {Double} - valor do salário após aplicar o Bonus
@@ -49,18 +50,42 @@ public class Motorista extends Empregado {
     }
     
     /* Getter & Setter*/
+    
+    /**
+    * Metodo que retorna o valor do Bonus
+    * @return {Double} - valor do Bonus a pagar
+    */
     public double getBonus(){
         return this.quilometros * this.taxaPorQuilometro;
     }
+    
+    /**
+    * Metodo que retorna o valor dos Quilometros
+    * @return {int} - valor dos Quilometros
+    */
     public int getQuilometros() {
         return quilometros;
     }
+    
+    /**
+    * Metodo que atribui um valor ao Atributo 'quilometros'
+    * @param quilometros{int} - Quilometros realizados
+    */
     public void setQuilometros(int quilometros) {
         this.quilometros = quilometros;
     }
+    
+    /**
+    * Metodo que retorna o valor de taxa por Quilometro Percorrido
+    * @return {double} - taxa por Quilometros
+    */
     public double getTaxaPorQuilometro() {
         return taxaPorQuilometro;
     }
+    /**
+    * Metodo que atribui um valor de taxa por Quilometro Percorrido 
+    * @param taxaPorQuilometro {double} - taxa por quilometro
+    */
     public void setTaxaPorQuilometro(double taxaPorQuilometro) {
         this.taxaPorQuilometro = taxaPorQuilometro;
     }

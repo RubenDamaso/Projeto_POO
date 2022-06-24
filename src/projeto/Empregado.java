@@ -79,32 +79,61 @@ public abstract class Empregado {
 
    
     /*--- Get & Set Nome---*/
+    /**
+    * Metodo que retorna o valor do atributo 'nome'
+    * @return {String} - Nome do Empregado
+    */
     public String getNome() {
         return nome;
     }
+    /**
+    * Metodo que atribuei um valor do atributo 'nome'
+    * @param nome {string} - Nome do Empregado
+    */
     public void setNome(String nome) {
         this.nome = nome;
     }
     
     /*--- Get & Set Id_Empregado---*/
+    /**
+    * Metodo que retorna o valor do atributo 'id_Empregado'
+    * @return {int} - ID do Empregado
+    */
     public int getId_Empregado() {
         return id_Empregado;
     }
+     /**
+    * Metodo que atribuei um valor do atributo 'id_Empregado'
+    * @param id_Empregado {int} - ID do Empregado
+    */
     public void setId_Empregado(int id_Empregado) {
         this.id_Empregado = id_Empregado;
     }
     
     /*--- Get & Set DataEntradaEmpresa---*/
+    /**
+    * Metodo que retorna o valor do atributo 'DataEntradaEmpresa'
+    * @return {String} - Data de Entrada na Empresa
+    */
     public String getDataEntradaEmpresa() {
         return dataEntradaEmpresa;
     }
+    /**
+    * Metodo que atribui o valor do atributo 'DataEntradaEmpresa'
+    * @param dataEntradaEmpresa{String} - Data de Entrada na Empresa
+    */
     public void setDataEntradaEmpresa(String dataEntradaEmpresa) {
         this.dataEntradaEmpresa = dataEntradaEmpresa;
     }
     
     /*--- Get & Set TotalDiasTrabalhados---*/
+    /**
+    * Metodo que retorna o valor do atributo 'TotalDiasTrabalhados'
+    * @return {int} - Totalidade de Dias Trabalhados na Empresa neste mês
+    */
     public int getTotalDiasTrabalhados() {
        
+        //Obtemos o mes atual do dispositivo
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter FormatMes = DateTimeFormatter.ofPattern("MM");  
         String MesFormatado = now.format(FormatMes);
@@ -118,29 +147,55 @@ public abstract class Empregado {
                  break;
               }
         }
-        
+       //Retornamos o total de Dias trabalhados neste mês
       return totaldeDiasMes;
     }
+    /**
+    * Metodo que retorna o valor do atributo 'TotalDiasTrabalhados'
+    * @param mes {int} - Mes que queremos verificar
+    * @return {int} - Totalidade de Dias Trabalhados na Empresa nesse mês
+    */
     public int getTotalDiasTrabalhados(int mes) {
        int  totaldeDiasMes =  this.totalDiasTrabalhados[mes];     
        return totaldeDiasMes;
     }
+    /**
+    * Metodo que atribui o valor do atributo 'TotalDiasTrabalhados'
+    * @param totalDiasTrabalhados {int[]} - Total de dias trabalhados em todos os meses 
+    */
     public void setTotalDiasTrabalhados(int[] totalDiasTrabalhados) {
         this.totalDiasTrabalhados = totalDiasTrabalhados;    
     }
     
     
     /*--- Get & Set salario---*/
+    /**
+    * Metodo que retorna o valor do atributo 'Salario'
+    * @return {double} - valor do salario
+    */
     public double getSalario() {
            return salario;
-       }
+    }
+    /**
+    * Metodo que atribui um valor ao atributo 'Salario'
+    * @param salario {double} - Salario
+    */
     public void setSalario(double salario) {
         this.salario = salario;
     }
-
+    
+    /*--- Get & Set Ano de Entrada na Empresa---*/
+    /**
+    * Metodo que retorna o valor do atributo 'AnoEntradaEmpresa'
+    * @return {int} - Ano de Entrada na Empresa
+    */
     public int getAnoEntradaEmpresa() {
         return AnoEntradaEmpresa;
     }
+    /**
+    * Metodo que retorna atribui um valor ao atributo 'AnoEntradaEmpresa'
+    * @param AnoEntradaEmpresa {int} -Ano de Entrada na Empresa
+    */
     public void setAnoEntradaEmpresa(int AnoEntradaEmpresa) {
         this.AnoEntradaEmpresa = AnoEntradaEmpresa;
     }

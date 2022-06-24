@@ -6,15 +6,18 @@
 package projeto;
 import java.util.Scanner;
 
-
 public class InputReader {
-
+    /*--Atributos--*/
     private Scanner reader;
-
+    /*--Metodo Contrutor--*/
     public InputReader() {
         reader = new Scanner(System.in);
     }
 
+    /**
+    * Metodo que Aprenseta a Questão ao Utilizador de forma formatada
+    * @param question {String} - Pergunta
+    */
     private void showFormattedQuestion(String question) {
         if(question == null) {
             question = "";
@@ -22,7 +25,11 @@ public class InputReader {
         question += "> ";       
         System.out.print(question);
     }
-
+    /**
+    * Metodo que lê o numero real introduzido pelo utilizador
+    * @param question {String} - Pergunta a realizar
+    * @return {double} - Retorna o valor introduzido
+    */
     public double getRealNumber(String question) {
         showFormattedQuestion(question);
 
@@ -34,7 +41,11 @@ public class InputReader {
         reader.nextLine();  
         return number;
     }
-
+    /**
+    * Metodo que lê o numero inteiro introduzido pelo utilizador
+    * @param question {String} - Pergunta a realizar
+    * @return {int} - Retorna o valor introduzido
+    */
     public int getIntegerNumber(String question) {
         showFormattedQuestion(question);
 
@@ -46,7 +57,11 @@ public class InputReader {
         reader.nextLine();  
         return number;
     }
-
+    /**
+    * Metodo que lê o texto introduzido pelo utilizador
+    * @param question {String} - Pergunta a realizar
+    * @return {Strign} - Retorna o valor introduzido
+    */
     public String getText(String  question) {
         showFormattedQuestion(question);
         return reader.nextLine();

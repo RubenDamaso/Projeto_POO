@@ -23,7 +23,6 @@ public class Empresa {
      private final ArrayList<Empregado> empregadoList;
      private final double salarioBase;
      private final InputReader scanner;
-     
      private enum meses{
          JANEIRO(23),
          MARCO(23),
@@ -52,30 +51,28 @@ public class Empresa {
      }
   
      
-     /*---Metodo Construtor---*/
-        /**
-        * Metodo Construtor para a Empresa sem qualquer valor passado por parametro
-        * 
-        */
-       public Empresa(){
+    /*---Metodo Construtor---*/
+    /**
+    * Metodo Construtor para a Empresa sem qualquer valor passado por parametro
+    * 
+    */
+    public Empresa(){
         this.empregadoList = new ArrayList<>();
         this.scanner = new InputReader();
         this.salarioBase = 4.79;
-    
-      }
-        /**
-        * Metodo Construtor para a Empresa com o valor do salario base passado por parametro
-        *
-        * @param salarioBase {Double} - Valor do Salario Base da Empresa
-        */
-       public Empresa(int salarioBase){
-        this.empregadoList = new ArrayList<>();
-        this.scanner = new InputReader();
-        if(salarioBase>0){
-         this.salarioBase = salarioBase;
-        }else this.salarioBase = 4.79;
-      
-      }
+    }
+    /**
+    * Metodo Construtor para a Empresa com o valor do salario base passado por parametro
+    *
+    * @param salarioBase {Double} - Valor do Salario Base da Empresa
+    */
+    public Empresa(int salarioBase){
+     this.empregadoList = new ArrayList<>();
+     this.scanner = new InputReader();
+     if(salarioBase>0){
+      this.salarioBase = salarioBase;
+     }else this.salarioBase = 4.79;
+   }
       
     /**
     * Função que adiciona um empregado à empresa
@@ -719,8 +716,8 @@ public class Empresa {
     /*------ Ficheiros ------*/
     
     /**
-     * Função que Verifica se o ficheiro existe e se não existir cria um novo
-     */
+    * Função que Verifica se o ficheiro existe e se não existir cria um novo
+    */
     public static void CheckFile(){
         try {
           File file = new File("Empregados.txt");
@@ -732,8 +729,8 @@ public class Empresa {
     }
     
     /**
-     * Função que cria  o ficheiro 
-     */
+    * Função que cria  o ficheiro 
+    */
     public static void CreateFile(){
     try {
       File file = new File("Empregados.txt");
@@ -745,9 +742,9 @@ public class Empresa {
    }
     
     /**
-     * Função que escreve no ficheiro todos os Empregados
-     * @param Empregados {ArrayList<Empregado>} - ArrayList de Empregados
-     */
+    * Função que escreve no ficheiro todos os Empregados
+    * @param Empregados {ArrayList<Empregado>} - ArrayList de Empregados
+    */
     public static void Write(ArrayList<Empregado> Empregados){
      try {
       FileWriter filewriter = new FileWriter("Empregados.txt");
@@ -768,7 +765,7 @@ public class Empresa {
         /*--Variaveis*/
         int i;
         int id=0;
-        String nome="";
+        String nome=" ";
         String categoria="";
         int numeroCategoria=0;
         String DataDeEntrada="";

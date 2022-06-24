@@ -5,7 +5,6 @@
 package projeto;
 
 /**
- *
  * @author Rúben Dâmaso
  * @author David Neto
  */
@@ -50,18 +49,40 @@ public class Comerciais extends Empregado {
     }
   
     /* Getters & Setters*/
+    
+    /**
+    * Metodo que retorna o valor do do Bonus 
+    * @return {double} - valor do Bonus
+    */
     public double getBonus(){
         return this.vendas * this.taxaPorVendas;
     }
+    
+    /**
+    * Metodo que retorna as vendas 
+    * @return {int} - Total de vendas realizadas
+    */
     public int getVendas() {
         return vendas;
     }
+    /**
+    * Metodo que atribui um valor ao atributo vendas
+    * @param vendas {int} - Numero de vendas a adicionar
+    */
     public void setVendas(int vendas) {
         this.vendas = vendas;
     }
+    /**
+    * Metodo que retorna a taxa aplicada ás vendas Realizadas 
+    * @return {double} - Taxa por venda
+    */
     public double getTaxaPorVendas() {
         return taxaPorVendas;
     }
+    /**
+    * Metodo que atribui um valor ao atributo Taxa por vendas
+    * @param taxaPorVendas {double} -  Taxa a aplicar por venda
+    */
     public void setTaxaPorVendas(double taxaPorVendas) {
         this.taxaPorVendas = taxaPorVendas;
     }

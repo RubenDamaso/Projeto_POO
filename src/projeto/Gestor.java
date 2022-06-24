@@ -28,9 +28,17 @@ public class Gestor extends Empregado {
     }
     
     /* Getter & Setter*/
+    /**
+    * Metodo que retorna o valor do atributo 'premio' da Classe 'Gestor'
+    * @return {double} - Ano de Entrada na Empresa
+    */
     public double getPremio() {
         return premio;
     }
+    /**
+    * Metodo que atribui o valor do atributo 'premio' da Classe 'Gestor'
+    * @param premio  {double} - Valor do Premio a pagar 
+    */
     public void setPremio(double premio) {
         this.premio = premio;
     }
