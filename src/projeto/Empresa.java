@@ -759,7 +759,7 @@ public class Empresa {
     /**
      * Função que obtem do Ficheiro os Empregados e Insere na ArrayList , semelhante a uma Base de Dados
      */
-    public  void GetFromFile(){
+    public void GetFromFile(){
         /*--Variaveis*/
         int i;
         int id=0;
@@ -853,7 +853,6 @@ public class Empresa {
       reader.close();
     } catch (FileNotFoundException e) {
       System.out.println("An error occurred.");
-      e.printStackTrace();
     }
     
     }
