@@ -782,7 +782,7 @@ public class Empresa {
       while (reader.hasNextLine()) {
         String dados = reader.nextLine();
         if(!dados.isBlank()){
-              dados.trim();
+        dados.trim();
         String[] dadosSeparados = dados.split("\\|"); 
         for(i =0 ;i< dadosSeparados.length;i++){
            dadosSeparados[i] = dadosSeparados[i].replaceAll(".+:", "");
