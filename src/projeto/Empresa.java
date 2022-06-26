@@ -408,9 +408,25 @@ public class Empresa {
     */
     public Empregado[] getListEmpregados(){
           
-      int numeroEmpregados = this.scanner.getIntegerNumber("Numero de total Empregados  a Introduzir:");
+    boolean ChecknumeroEmpregados;
+      int numeroEmpregados=0;
+      do{    
+         numeroEmpregados = this.scanner.getIntegerNumber("Numero de total Empregados  a Introduzir:");
+        if (numeroEmpregados < 0){
+            System.out.println("!!-- Os numero total de empregados a introduzir  têm de ser superior a 0--!!");
+            ChecknumeroEmpregados = false;
+        }
+        else{
+             ChecknumeroEmpregados = true;
+        }
+      }while(ChecknumeroEmpregados != true);
+      
+      
+      
+      
       Empregado[] listaEmpregados;
       listaEmpregados = new Empregado[numeroEmpregados];      
+      
       
    
        for(int i = 0 ; i < numeroEmpregados ; i++){
@@ -556,6 +572,7 @@ public class Empresa {
                 
           }
             this.Write(this.empregadoList);
+            System.out.println("---Empregados Adicionados com sucesso!---");
        }
     }  
     
