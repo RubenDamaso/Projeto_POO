@@ -736,7 +736,7 @@ public class Empresa {
       File file = new File("Empregados.txt");
       file.createNewFile();
     } catch (IOException e) {
-      System.out.println("An error occurred.");
+      System.out.println("Ocorreu um erro , por favor reinicie a Aplicação! ");
     }
    }
     
@@ -752,7 +752,7 @@ public class Empresa {
       } 
       filewriter.close();
     } catch (IOException e) {
-      System.out.println("An error occurred.");
+      System.out.println("Ocorreu um erro , por favor reinicie a Aplicação! ");
     }
     }
     
@@ -776,7 +776,7 @@ public class Empresa {
     try {
       File ficheiro = new File("Empregados.txt");
       Scanner reader = new Scanner(ficheiro);
-       reader.hasNextLine(); // this will read the first line
+       reader.hasNextLine(); 
        
 
       while (reader.hasNextLine()) {
@@ -852,7 +852,7 @@ public class Empresa {
       }
       reader.close();
     } catch (FileNotFoundException e) {
-      System.out.println("An error occurred.");
+      System.out.println("Ocorreu um erro , por favor reinicie a Aplicação! ");
     }
     
     }
